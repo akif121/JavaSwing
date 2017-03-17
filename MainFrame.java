@@ -14,7 +14,7 @@ public class MainFrame extends JFrame{
 		btn = new JButton("Click Me!");
 		btn.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent arg0) {
-				textPanel.addText("Hello\n");
+				textPanel.addText("Hello"+" World\n");
 		}
 		});
 		add(textPanel, BorderLayout.CENTER);
