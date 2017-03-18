@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public class Toolbar extends JPanel implements ActionListener {
 	private JButton Hbtn;
 	private JButton Gbtn;
-	private TextPanel textpanel;
+	private StringListener textListener;
 	public Toolbar(){
 		
 		Hbtn = new JButton("Hello");
@@ -23,20 +23,23 @@ public class Toolbar extends JPanel implements ActionListener {
 		add(Gbtn);
 		
 	}
-	public void setTextPanel(TextPanel textpanel){
-		this.textpanel = textpanel;
+	public void setStringListener(StringListener listener){
+		this.textListener = listener;
 	}
 	public void actionPerformed(ActionEvent e) {
 		JButton clicked = (JButton)e.getSource();
 		
 		if(clicked==Hbtn){
-			textpanel.addText("Hello\n");
+			if(textListener != null){
+				textListener.textEmitted("Hello\n");
+			}
 		}
 		else if (clicked==Gbtn)
-		{
-			textpanel.addText("Goodbye\n");
+		{if(textListener != null){
+			textListener.textEmitted("GoodBye\n");
 		}
-		
+			
+		}
 	}
 
 }
